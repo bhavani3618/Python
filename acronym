@@ -1,0 +1,13 @@
+def stringlet(words,s):
+    l=""
+    for i in words:
+        for j in range(len(i)):
+            l+=i[0]
+            break
+    if len(words)==len(s) and l==s:
+        return True
+    else:
+        return False
+words=["alice","bob","charlie"]
+s="abcd"
+print(stringlet(words,s))

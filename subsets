@@ -1,0 +1,17 @@
+def generate(self,ind,curr,ans,nums):
+    if ind==len(nums):
+        ans.append(curr.copy())
+        return
+    curr.append(nums[ind])
+    self.generate(ind+1,curr,ans,nums)
+    curr.pop()
+    self.generate(ind+1,curr,ans,nums)
+    return ans
+def subsets(self,nums):
+    ind=0
+    curr=[]
+    ans=[]
+    self.generate(ind,curr,ans,nums)
+    return ans
+nums=[1,2,3]
+print(subsets(nums))

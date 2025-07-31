@@ -1,0 +1,24 @@
+def spiralmat(mat):
+    n=len(mat)
+    m=len(mat[0])
+    sr,sc=0,0#start row, start col
+    er,ec=n-1,m-1#end row,end col
+    res=[]
+    while(sr<=er and sc<=ec):
+        for i in range(sc,ec+1):#left to right
+            res.append(mat[sr][i])
+        sr+=1
+        for i in range(sr,er+1):#top to bottom
+            res.append(mat[i][ec])
+        ec-=1
+        if sr<=er:#to check for other row(if only single row is given)
+            for i in range(ec,sc-1,-1):#right to left
+                res.append(mat[er][i])
+            er-=1
+        if sc<=ec:#to check for other col
+            for i in range(er,sr-1,-1):#bottom to top(if only single col is given)
+                res.append(mat[i][sc])
+            sc+=1
+    return res
+mat=[[1,2,3],[4,5,6],[7,8,9]]
+print(spiralmat(mat))

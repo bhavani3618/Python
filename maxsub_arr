@@ -1,0 +1,12 @@
+def maxSubArray(arr):
+    n=len(arr)
+    maxSum=float('-inf')
+    currentSum=0
+    for i in arr:
+        currentSum+=i
+        maxSum=max(maxSum,currentSum)
+        if currentSum<0:
+            currentSum=0
+    return maxSum
+arr=list(map(int,input().split()))
+print(maxSubArray(arr))

@@ -1,0 +1,12 @@
+def mincoins(coins,amount):
+    dp=[amount+1]*(amount+1)
+    dp[0]=0
+    for i in coins:
+        for j in range(i,amount+1):
+            dp[j]=min(dp[j],dp[j-i]+1)
+    if dp[amount]!=amount+1:
+        return dp[amount]
+    return -1
+coins=list(map(int,input().split()))
+amount=int(input())
+print(mincoins(coins,amount))

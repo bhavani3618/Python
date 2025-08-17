@@ -1,0 +1,10 @@
+def maxjump(nums):
+    n=len(nums)
+    maxi=0
+    for i in range(n):
+        if i>maxi:
+            return False
+        maxi=max(maxi,i+nums[i])
+    return True
+nums=list(map(int,input().split()))
+print(maxjump(nums))

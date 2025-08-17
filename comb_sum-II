@@ -1,0 +1,19 @@
+def duplicates(candidates,target):
+    candidates.sort()
+    result=[]
+    def backtrack(start,path,k):
+        if k==0:
+            result.append(path[:])
+        if k<0:
+            return       
+        for i in range(start,len(candidates)):
+            if i>start and candidates[i]==candidates[i-1]:
+                continue
+            path.append(candidates[i])
+            backtrack(i+1,path,k-candidates[i])
+            path.pop()
+    backtrack(0,[],target)
+    return result
+candidates=list(map(int,input().split()))
+target=int(input())
+print(duplicates(candidates,target))
